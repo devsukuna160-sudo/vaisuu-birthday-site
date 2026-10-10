@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Vaisuu 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body{
+      font-family: "Quicksand", sans-serif;
+      color: #713e62;
+      background: linear-gradient(135deg, #ffe6f2, #fff6e5, #e8f7ff);
+      overflow-x: hidden;
+    }
+
+    .sticker{
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      font-size: 26px;
+      animation: float 4s infinite ease-in-out;
+    }
+    .s1{ top:12%; left:3%; }
+    .s2{ top:25%; right:4%; }
+    .s3{ bottom:15%; left:5%; }
+    .s4{ bottom:22%; right:4%; }
+    @keyframes float{
+      50% { transform: translateY(-15px) rotate(8deg); }
+    }
+
+    nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 12px;
+      background: rgba(145, 76, 122, 0.93);
+      backdrop-filter: blur(12px);
+    }
+    nav a{
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 9px 12px;
+      border-radius: 25px;
+    }
+    nav a:hover { background: #ff79b6; }
+    .brand{
+      font-family: "Dancing Script", cursive;
+      color: white;
+      font-size: 23px;
+      margin-right: 12px;
+    }
+
+    .hero{
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 15px;
+    }
+    .hero-card{
+      max-width: 700px;
+      width: 100%;
+      padding: 48px 24px;
+      border-radius: 32px;
+      background: rgba(255,255,255,0.78);
+      border: 2px solid #ffd1e8;
+      box-shadow: 0 20px 55px rgba(255,105,180,0.25);
+      backdrop-filter: blur(12px);
+    }
+    h1,h2{
+      font-family: "Dancing Script", cursive;
+      color: #ff5fa2;
+    }
+    .hero h1{
+      font-size: clamp(48px, 9vw, 82px);
+      text-shadow: 0 0 18px #ffb3d1;
+    }
+    .hero p{
+      font-size: 19px;
+      line-height: 1.8;
+      margin-top: 15px;
+    }
+
+    .btn, button{
+      display: inline-block;
+      border: 0;
+      border-radius: 40px;
+      padding: 13px 21px;
+      margin: 10px 4px 0;
+      background: linear-gradient(135deg, #ff79b6, #ed4595);
+      color: white;
+      text-decoration: none;
+      font: 700 14px "Quicksand", sans-serif;
+      cursor: pointer;
+      box-shadow: 0 7px 18px rgba(255,95,162,0.27);
+      transition: .25s;
+    }
+    .btn:hover, button:hover{
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+    }
+
+    section{
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 35px 23px;
+      border: 2px solid #ffe0ef;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 15px 40px rgba(138,72,123,0.08);
+      scroll-margin-top: 80px;
+    }
+    h2{
+      text-align: center;
+      font-size: clamp(34px, 5vw, 44px);
+      margin-bottom: 22px;
+    }
+    p { line-height: 1.8; }
+
+    .panels{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .panel{
+      flex: 1;
+      min-width: 210px;
+      padding: 25px;
+      border: 2px solid #ffc2dd;
+      border-radius: 23px;
+      background: linear-gradient(135deg, #fff0f7, #ffe9f4);
+      box-shadow: 0 0 20px rgba(255,105,180,0.13);
+    }
+    .panel h3{
+      color: #ff4f9a;
+      margin-bottom: 10px;
+    }
+
+    .gallery{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .photo{
+      overflow: hidden;
+      background: white;
+      border: 3px solid #ffd6e8;
+      border-radius: 20px;
+      box-shadow: 0 8px 22px rgba(255,105,180,0.2);
+      transition: .3s;
+    }
+    .photo:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(255,105,180,0.25);
+    }
+    .photo img{
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo p{
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+    }
+
+    .letter{
+      padding: 24px;
+      background: #fff9fb;
+      border-left: 6px solid #ff5fa2;
+      border-radius: 15px;
+      font-size: 17px;
+      line-height: 1.9;
+      font-style: italic;
+    }
+    .sign{
+      text-align: right;
+      font: 28px "Dancing Script", cursive;
+      color: #ff5fa2;
+      margin-top: 15px;
+    }
+
+    footer{
+      text-align: center;
+      padding: 30px 12px;
+      color: #a34d7d;
+      font-weight: bold;
+    }
+
+    /* MIRROR PAGE */
+    #mirror{ background: radial-gradient(circle at top,#fff,#fff0f8 65%,#ffe2f0); }
+    .mirror-intro{ text-align: center; margin-bottom: 22px; }
+    .mirror-layout{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+    .mirror-frame{
+      width: min(100%, 310px);
+      aspect-ratio: 3/4;
+      margin: 10px auto 18px;
+      padding: 12px;
+      border-radius: 48% 48% 43% 43%;
+      background: linear-gradient(135deg,#fff,#ff75b7,#fff0fa,#dba3ff,#ff5fa2);
+      box-shadow: 0 0 12px #ff5fa2, 0 0 28px #ff82c4, 0 0 50px #ffadd8, inset 0 0 14px white;
+      transition: .4s;
+    }
+    .mirror-frame.off{
+      filter: saturate(.5);
+      box-shadow: 0 0 0 2px #e9c7da;
+    }
+    .mirror-inner{
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: inherit;
+      border: 4px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg,#fce3f3,#dcdafa,#fce9f3);
+    }
+    .mirror-inner:after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.4) 42%, transparent 58%);
+    }
+    #mirrorVideo{
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+    #mirrorPlaceholder{
+      text-align: center;
+      padding: 20px;
+      line-height: 1.8;
+      color: #a34d7d;
+    }
+    #mirrorPlaceholder span{
+      display: block;
+      font-size: 55px;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat{ 50%{ transform:scale(1.13); } }
+    #mirrorStatus{
+      text-align: center;
+      font-size: 14px;
+      min-height: 25px;
+    }
+    .mirror-controls{ text-align: center; }
+    .compliments{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .compliment{
+      padding: 13px;
+      text-align: center;
+      background: white;
+      border: 1px solid #ffd0e5;
+      border-radius: 15px;
+      line-height: 1.7;
+    }
+
+    /* CAKE PAGE */
+    #birthdayCake{ background: radial-gradient(circle at top,#fff,#fff0f8 65%,#ffe0ef); }
+    .cake-subtitle{ text-align:center; margin-bottom:20px; }
+    .cake-stage{
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      height: 375px;
+      margin: auto;
+      overflow: hidden;
+      border: 1px solid #ffe0ef;
+      border-radius: 25px;
+      background: radial-gradient(ellipse at bottom, #ffd1e6, #fff8fc 72%);
+      touch-action: pan-y;
+    }
+    .sparkles{
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      text-align: center;
+      font-size: 25px;
+      animation: float 2s infinite;
+    }
+    .cake{
+      position: absolute;
+      width: 245px;
+      left: 50%;
+      bottom: 45px;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .cake-top{
+      position: relative;
+      height: 80px;
+      border: 4px solid white;
+      border-radius: 50% 50% 12px 12px / 45% 45% 12px 12px;
+      background: linear-gradient(160deg, #ffc5df, #ff80b5);
+      box-shadow: inset 0 -7px #f86da7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cake-name{
+      font: 700 29px "Dancing Script", cursive;
+      color: #a52863;
+      text-shadow: 0 1px white;
+    }
+    .icing{
+      position: absolute;
+      bottom: -12px;
+      width: 19px;
+      height: 24px;
+      border-radius: 0 0 12px 12px;
+      background: #fff0f7;
+    }
+    .icing.i1{ left:27px; height:29px; }
+    .icing.i2{ left:110px; height:18px; }
+    .icing.i3{ right:27px; height:30px; }
+    .cake-body{
+      height: 110px;
+      margin-top: -2px;
+      border: 4px solid white;
+      border-radius: 8px 8px 18px 18px;
+      background: linear-gradient(90deg,#ffb3d1,#ff8ab8,#ffb3d1);
+      box-shadow: inset 0 -13px #f36ba3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .cake-message{
+      font-size: 17px;
+      font-weight: bold;
+      color: #a72c65;
+    }
+    .cake-base{
+      height: 14px;
+      width: 260px;
+      margin-left: -7px;
+      border-radius: 50%;
+      background: #ffcee3;
+      border: 2px solid white;
+    }
+    .candles{
+      position: absolute;
+      z-index: 3;
+      bottom: 248px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 125px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .candle{
+      position: relative;
+      width: 13px;
+      height: 42px;
+      border-radius: 4px;
+      background: repeating-linear-gradient(135deg, #fff 0 5px, #ff68a5 5px 10px);
+      border: 1px solid #ff9fc5;
+    }
+    .flame{
+      position: absolute;
+      width: 15px;
+      height: 21px;
+      left: -2px;
+      top: -22px;
+      border-radius: 50% 50% 45% 45%;
+      background: radial-gradient(ellipse,#fff8a6,#ffad33 55%,#ff6394);
+      box-shadow: 0 0 15px #ffb347;
+      animation: flicker .4s infinite alternate;
+    }
+    @keyframes flicker{ to{ transform: rotate(6deg) scale(1.08); } }
+    #cakeKnife{
+      position: absolute;
+      z-index: 10;
+      left: 12px;
+      top: 165px;
+      font-size: 43px;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+      transform: rotate(-25deg);
+    }
+    #cakeKnife:active{ cursor: grabbing; }
+    #cakeMessage{
+      text-align: center;
+      min-height: 32px;
+      font-weight: bold;
+      padding: 10px 0;
+    }
+    .cake-buttons{ text-align: center; }
+    #birthdayCake.is-cut .cake{
+      animation: cutCake .7s ease;
+    }
+    @keyframes cutCake{
+      40%{ transform: translateX(-50%) rotate(-5deg) scale(1.04); }
+      100%{ transform: translateX(-50%) rotate(0) scale(.97); }
+    }
+    .heart-pop{
+      position: fixed;
+      z-index: 999;
+      pointer-events: none;
+      transition: transform 1.5s, opacity 1.5s;
+    }
+
+    @media (max-width: 700px){
+      .mirror-layout{ grid-template-columns: 1fr; }
+      section{ margin: 32px 12px; padding: 28px 17px; }
+      nav{ gap:2px; }
+      .brand{ width:100%; text-align:center; }
+      nav a{ padding:7px 8px; font-size:12px; }
+    }
+    @media (max-width: 420px){
+      .cake-stage{ height:340px; }
+      .cake{ transform:translateX(-50%) scale(.82); transform-origin:bottom center; }
+      .candles{ bottom:225px; }
+      #cakeKnife{ font-size:36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sticker s1">🎀</div>
+  <div class="sticker s2">💖</div>
+  <div class="sticker s3">🌸</div>
+  <div class="sticker s4">🧸</div>
+
+  <nav>
+    <span class="brand">💗 Vaisuu's Birthday</span>
+    <a href="#home">Home</a>
+    <a href="#mirror">Mirror</a>
+    <a href="#birthdayCake">Cake</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#letter">Letter</a>
+    <a href="#wishes">Wishes</a>
+  </nav>
+
+  <div class="hero" id="home">
+    <div class="hero-card">
+      <h1>Happy Birthday<br>Vaisuu 🎂💖</h1>
+      <p>Today is all about you, my favourite person 🥰</p>
+      <a class="btn" href="#letter">Read Your Letter 💌</a>
+      <a class="btn" href="#mirror">Open Your Magic Mirror ✨</a>
+      <a class="btn" href="#birthdayCake">Let's Cut Your Cake 🎂</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>For My Vaisuu ✨</h2>
+    <div class="panels">
+      <div class="panel">
+        <h3>🌸 You Are Special</h3>
+        <p>Vaisuu, you make ordinary days feel beautiful. Your smile, your kindness, and the way you care mean more to me than words can say.</p>
+      </div>
+      <div class="panel">
+        <h3>💖 My Wish For You</h3>
+        <p>May this year bring you endless happiness, good health, success, and all the little things that make you smile.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mirror">
+    <h2>Your Magical Mirror ✨💗</h2>
+    <p class="mirror-intro">Look at yourself, Vaisuu. You're more beautiful than you think. 🌷</p>
+    <div class="mirror-layout">
+      <div>
+        <div class="mirror-frame off" id="mirrorFrame">
+          <div class="mirror-inner">
+            <div id="mirrorPlaceholder"><span>💖</span><b>Your magic mirror is sleeping...</b><br>Tap Open Mirror to wake it up ✨</div>
+            <video id="mirrorVideo" autoplay playsinline muted></video>
+          </div>
+        </div>
+        <p id="mirrorStatus">Mirror is OFF 🌙</p>
+        <div class="mirror-controls">
+          <button id="openMirror" type="button">✨ Open Mirror</button>
+          <button id="closeMirror" type="button">🌙 Close Mirror</button>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font:32px 'Dancing Script';color:#ff4f9a;margin-bottom:12px">Hey, beautiful girl... 💕</h3>
+        <p>This mirror is here to remind you that your smile matters, your heart is precious, and the world is better with you in it. Never forget how special you are. 🦋</p>
+        <div class="compliments">
+          <div class="compliment">🌸<br><b>Your Smile</b><br>My sunshine</div>
+          <div class="compliment">💗<br><b>Your Heart</b><br>Beautiful inside out</div>
+          <div class="compliment">✨<br><b>Your Magic</b><br>You brighten days</div>
+          <div class="compliment">🧸<br><b>Your Presence</b><br>A lovely comfort</div>
+        </div>
+        <p style="margin-top:18px;text-align:center;font:26px 'Dancing Script';color:#ff5fa2">Never stop being you, Vaisuu 💖</p>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;margin-top:15px">Camera permission is optional. The mirror uses your front camera only after you tap Open Mirror. Close Mirror stops it.</p>
+  </section>
+
+  <section id="birthdayCake">
+    <h2>Cut Your Birthday Cake, Vaisuu 🎂💖</h2>
+    <p class="cake-subtitle">Drag the knife across your cake to make your birthday cut. Make a wish! 🥹💗</p>
+    <div class="cake-stage" id="cakeStage">
+      <div class="sparkles" id="sparkles">✨ 💖 ✨ 🌸 ✨</div>
+      <div class="candles">
+        <div class="candle"><span class="flame"></span></div>
+        <div class="candle"><span class="flame"></span></div>
+        <div class="candle"><span class="flame"></span></div>
+      </div>
+      <div class="cake" id="cake">
+        <div class="cake-top">
+          <span class="cake-name">Vaisuu 💖</span>
+          <span class="icing i1"></span>
+          <span class="icing i2"></span>
+          <span class="icing i3"></span>
+        </div>
+        <div class="cake-body">
+          <div>💗 🍓 💗 🍓 💗</div>
+          <div class="cake-message">Happy Birthday!</div>
+        </div>
+        <div class="cake-base"></div>
+      </div>
+      <div id="cakeKnife" role="button" tabindex="0" aria-label="Drag knife to cut cake">🔪</div>
+    </div>
+    <p id="cakeMessage" aria-live="polite">Drag the knife across the cake to cut it! 💕</p>
+    <div class="cake-buttons">
+      <button id="blowCandles" type="button">🕯️ Blow Out Candles</button>
+      <button id="celebrate" type="button">🎉 Celebrate!</button>
+      <button id="resetCake" type="button">🔄 Again</button>
+    </div>
+    <p style="text-align:center;font:22px 'Dancing Script';margin-top:16px">Made with all the love in the world for Vaisuu 💖🌷</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Our Cute Memories 📸</h2>
+    <div class="gallery" id="galleryContainer"></div>
+  </section>
+
+  <section id="letter">
+    <h2>A Little Letter For You 💌</h2>
+    <div class="letter">
+      Dear Vaisuu,<br><br>
+      Happy Birthday, my love! 🎉 On your special day, I want you to know how much happiness you bring into my life. You are not only my girlfriend, you are my best friend, my comfort, and my favourite person.<br><br>
+      I hope your day is as sweet, cute, and wonderful as you are. May every wish you make today come true. Thank you for being you — always. 💖<br><br>
+      Stay happy, stay blessed, and keep smiling forever.
+      <div class="sign">— With love, Ayush 🤍</div>
+    </div>
+  </section>
+
+  <section id="wishes">
+    <h2>Birthday Wishes 🎈</h2>
+    <div class="panels">
+      <div class="panel">
+        <h3>🎂 Health</h3>
+        <p>Wishing you a healthy and peaceful year ahead.</p>
+      </div>
+      <div class="panel">
+        <h3>🌟 Success</h3>
+        <p>May all your dreams and hard work shine brightly.</p>
+      </div>
+      <div class="panel">
+        <h3>💖 Love</h3>
+        <p>May you always feel loved, valued, and special.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with 💖 only for <b>Vaisuu</b> · Happy Birthday 🎂</footer>
+
+  <script>
+    const memoryPhotos = [
+      {
+        src: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
+        caption: 'Your smile is my favorite view 💖'
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80',
+        caption: 'Beautiful moments, beautiful memories ✨'
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80',
+        caption: 'A little sparkle, a lot of love 🌸'
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
+        caption: 'Always my favorite person 💗'
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=900&q=80',
+        caption: 'Sweet memories we keep forever 🌷'
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
+        caption: 'Forever and always, my love 💌'
+      }
+    ];
+
+    function loadMemoryPhotos() {
+      const galleryContainer = document.getElementById('galleryContainer');
+      galleryContainer.innerHTML = '';
+
+      memoryPhotos.forEach((item) => {
+        const photoDiv = document.createElement('div');
+        photoDiv.className = 'photo';
+        photoDiv.innerHTML = `
+          <img src="${item.src}" alt="${item.caption}">
+          <p>${item.caption}</p>
+        `;
+        galleryContainer.appendChild(photoDiv);
+      });
+    }
+
+    // MIRROR JS
+    const video = document.getElementById('mirrorVideo');
+    const frame = document.getElementById('mirrorFrame');
+    const placeholder = document.getElementById('mirrorPlaceholder');
+    const statusText = document.getElementById('mirrorStatus');
+    let cameraStream = null;
+
+    async function openMirror() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        statusText.textContent = 'Camera unavailable here. Open this page on HTTPS or localhost. 💗';
+        return;
+      }
+      try {
+        statusText.textContent = 'Asking permission to open your camera... ✨';
+        cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+        video.srcObject = cameraStream;
+        await video.play();
+        video.style.display = 'block';
+        placeholder.style.display = 'none';
+        frame.classList.remove('off');
+        statusText.textContent = 'Mirror is ON ✨ Smile, Vaisuu! 💖';
+      } catch (err) {
+        statusText.textContent = 'Camera permission was not granted. Allow access and try again. 💗';
+        frame.classList.remove('off');
+      }
+    }
+
+    function closeMirror() {
+      if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+        cameraStream = null;
+      }
+      video.pause();
+      video.srcObject = null;
+      video.style.display = 'none';
+      placeholder.style.display = 'block';
+      frame.classList.add('off');
+      statusText.textContent = 'Mirror is OFF 🌙 Camera stopped.';
+    }
+
+    document.getElementById('openMirror').addEventListener('click', openMirror);
+    document.getElementById('closeMirror').addEventListener('click', closeMirror);
+    window.addEventListener('pagehide', closeMirror);
+
+    // CAKE JS
+    const stage = document.getElementById('cakeStage');
+    const knife = document.getElementById('cakeKnife');
+    const cakeMessage = document.getElementById('cakeMessage');
+    let dragging = false, cut = false, startX = 0, startY = 0;
+
+    knife.addEventListener('pointerdown', e => {
+      dragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      try { knife.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault();
+    });
+
+    knife.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const r = stage.getBoundingClientRect();
+      knife.style.left = Math.max(0, Math.min(r.width - 45, e.clientX - r.left - 20)) + 'px';
+      knife.style.top = Math.max(0, Math.min(r.height - 45, e.clientY - r.top - 20)) + 'px';
+
+      const c = document.getElementById('cake').getBoundingClientRect();
+      if (Math.hypot(e.clientX - startX, e.clientY - startY) > 25 &&
+          e.clientX >= c.left && e.clientX <= c.right &&
+          e.clientY >= c.top && e.clientY <= c.bottom) {
+        cutCake();
+      }
+    });
+
+    knife.addEventListener('pointerup', () => dragging = false);
+    knife.addEventListener('pointercancel', () => dragging = false);
+    knife.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cutCake();
+      }
+    });
+
+    function cutCake() {
+      if (cut) return;
+      cut = true;
+      document.getElementById('birthdayCake').classList.add('is-cut');
+      cakeMessage.textContent = 'Yay, Vaisuu! 🎂💗 You cut your special cake! Make a sweet wish! ✨';
+      document.getElementById('sparkles').textContent = '✨ 🎉 💖 🎊 💕 ✨';
+      showerHearts();
+    }
+
+    function blowOut() {
+      document.querySelectorAll('#birthdayCake .flame').forEach(f => f.style.display = 'none');
+      cakeMessage.textContent = 'Wish made! 🕯️💗 May all your dreams come true, Vaisuu!';
+      showerHearts();
+    }
+
+    function celebrate() {
+      cakeMessage.textContent = 'HAPPY BIRTHDAY, VAISUU! 🎉💗 You deserve all the happiness!';
+      document.getElementById('sparkles').textContent = '🎉 ✨ 🎂 💖 🎊 🌷';
+      showerHearts();
+    }
+
+    function resetCake() {
+      cut = false; dragging = false;
+      document.getElementById('birthdayCake').classList.remove('is-cut');
+      document.querySelectorAll('#birthdayCake .flame').forEach(f => f.style.display = '');
+      knife.style.left = '12px';
+      knife.style.top = '165px';
+      document.getElementById('sparkles').textContent = '✨ 💖 ✨ 🌸 ✨';
+      cakeMessage.textContent = 'Drag the knife across the cake to cut it! 💕';
+    }
+
+    document.getElementById('blowCandles').addEventListener('click', blowOut);
+    document.getElementById('celebrate').addEventListener('click', celebrate);
+    document.getElementById('resetCake').addEventListener('click', resetCake);
+
+    function showerHearts() {
+      const r = stage.getBoundingClientRect();
+      for (let i = 0; i < 18; i++) {
+        const h = document.createElement('span');
+        h.className = 'heart-pop';
+        h.textContent = ['💖','💕','✨','🌸','🎉'][i % 5];
+        h.style.left = (r.left + Math.random() * r.width) + 'px';
+        h.style.top = (r.top + r.height * 0.65) + 'px';
+        h.style.fontSize = (16 + Math.random() * 16) + 'px';
+        document.body.appendChild(h);
+
+        requestAnimationFrame(() => {
+          h.style.transform = `translate(${(Math.random() - 0.5) * 110}px, -180px) rotate(30deg)`;
+          h.style.opacity = '0';
+        });
+
+        setTimeout(() => h.remove(), 1600);
+      }
+    }
+
+    loadMemoryPhotos();
+  </script>
+</body>
+</html>
